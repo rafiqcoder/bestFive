@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Choose Favourite Five</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <!--------   TAILWIND INTEGRATION ---------->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-gray-900 text-white">
+    <!--- ============  HEADER Content  START ===========  ---->
+
+    <header
+      class="bg-black grid sm:grid-cols-4 gap-0 w-full justify-center overflow-hidden"
+    >
+      <div
+        class="sm:mr-4 grid sm:justify-start justify-center items-end -mb-6 sm:mt-5 text-center"
+      >
+        <img
+          class="sm:rounded-full w-full m-auto sm:m-0 hidden sm:block"
+          src="img/hockey5.jpg"
+          alt="Hockeyer"
+        />
+      </div>
+      <div
+        class="col-span-2 items-center grid justify-center text-center content-center"
+      >
+        <h1 class="hero_h sm:text-6xl text-4xl mt-4 text-blue-400 font-bold">
+          Choose Your Favorite Five
+        </h1>
+        <div class="h_underline grid justify-end w-9/12 mt-4">
+          <img src="img/header_lines.png" alt="" />
+        </div>
+        <p class="sm:text-xl text-white text-center mb-4 mt-4 w-7/12 m-auto">
+          Wellcome to Hockey world. You can choose your favourite five players
+          and calcualte your budget.
+        </p>
+      </div>
+      <div class="ml-4 grid justify-end items-end -mb-6 mt-5">
+        <img src="img/heroRight.png" class="hidden sm:block" alt="Hockeyer" />
+      </div>
+    </header>
+
+    <!---=======================================================   
+          Main Content START  
+     =====================================================----->
+
+    <main class="bg-gray-900">
+      <div
+        class="container grid sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-10 sm:w-11/12 sm:m-auto sm:mt-40 sm:mb-40 md:gap-4 grid-cols-2 mt-10 w-full"
+      >
+        <div
+          id="card_container"
+          class="sm:col-span-2 md:col-span-2 lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 gap-8"
+        >
+          <!--------   INject CARDs DYNAMACALLY  HERE---------->
+        </div>
+
+        <!-------- SIDEBAR FOR SELECT AND BUDGET   START ---------->
+        <div class="sidebar bg-gray-900 text-white sm:col-span-2 md:col-span-1">
+          <div class="select p-4 shadow-md mb-10 border-2 border-white pl-10">
+            <div class="selected-head text-center justify-center grid my-3">
+              <h2 class="mb-4 text-center sm:text-3xl text-xl font-semibold">
+                Selected-V
+              </h2>
+              <img src="img/h2_underline.png" class="mb-6" alt="" />
+            </div>
+            <ul
+              id="selected_ul"
+              class="grid md:gap-4 md:pl-5 text-2xl font-semibold"
+            >
+              <!--------   Inject selected player list  DYNAMACALLY  HERE---------->
+            </ul>
+          </div>
+          <div class="budget py-5 shadow-md border-2 border-white">
+            <div class="budget-head text-center justify-center grid my-3">
+              <h2 class="mb-4 text-center sm:text-3xl text-xl font-semibold">
+                Budget
+              </h2>
+              <img src="img/h2_underline.png" class="mb-6" alt="" />
+            </div>
+            <div class="budget_inputs text-center pb-5">
+              <label for="p-cost" class="text-xl font-semibold text-gray-500"
+                >Per Player</label
+              >
+              <input
+                type="number"
+                name="p-cost"
+                id="p_cost"
+                class="border-2 border-gray-300 py-1 rounded-full ml-2 bg-gray-300 pl-4 text-xl w-7/12 text-gray-400"
+                value="1000"
+                placeholder="budget here"
+              /><br /><br />
+              <button
+                class="btn bg-orange-600 hover:bg-blue-500 p-3 px-9 text-white text-xl font-semibold mb-6 w-11/12 m-auto rounded-full"
+                id="calc"
+              >
+                Calculate
+              </button>
+              <h4 class="py-5 text-2xl font-semibold">
+                Player Expenses: $<span id="pl_expense">00</span>
+              </h4>
+              <label
+                for="manager"
+                class="sm:text-xl font-semibold text-gray-500"
+                >Manager</label
+              >
+              <input
+                type="number"
+                name="manager"
+                id="manager"
+                class="border-2 border-gray-300 py-1 rounded-full ml-2 bg-gray-300 sm:pl-4 sm:text-xl w-7/12 text-gray-400"
+                value=" "
+                placeholder="budget here"
+              />
+              <br />
+              <br />
+              <label for="coach" class="text-xl font-semibold text-gray-500"
+                >Coach</label
+              >
+              <input
+                type="number"
+                name="coach"
+                id="coach"
+                class="border-2 border-gray-300 py-1 rounded-full sm:ml-2 bg-gray-300 sm:pl-4 sm:text-xl w-7/12 text-gray-400"
+                value=" "
+                placeholder="budget here"
+              />
+              <br /><br />
+              <button
+                class="btn bg-orange-600 hover:bg-blue-500 md:p-3 p-2 md:px-9 text-white text-xl font-semibold mb-6 sm:w-11/12 m-auto rounded-full"
+                id="calcTotal"
+              >
+                Calculate Total
+              </button>
+              <div class="budget_footer grid grid-cols-2 justify-between">
+                <h4 class="text-xl font-bold">Total :</h4>
+                <h4 class="text-xl font-bold text-orange-600">
+                  $ <span id="total"> 00</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-------- SIDEBAR FOR SELECT AND BUDGET   FINISHED ---------->
+      </div>
+    </main>
+    <!--- ============  Main Content  FINISHED ===========  ---->
+
+    <!--- ============  fOOTER Content  STARTS ===========  ---->
+
+    <footer class="text-center py-10 border-t-2">
+      <p>Copyright @ 2022 All Rights Reserved Md Rafiqul Islam | rafiqcoder</p>
+    </footer>
+
+    <!--- ============  fOOTER Content  FINISHED ===========  ---->
+    <script src="js/calculation.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
